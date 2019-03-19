@@ -117,7 +117,7 @@ class ResultView(View):
         except Exception as e:
             search_success = False
             error = e
-            print(search_success)
+            print(search_success, error)
             return render(request, self.template_name, {
                 **main_args,
                 "search_success": search_success,

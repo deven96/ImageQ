@@ -143,13 +143,9 @@ class BaseSearch(object):
         search_fmt_string = SEARCH_QUERY[engine]
         if engine == "Google":
             search_url = search_fmt_string.format(query, page)
-        if engine == "Yahoo":
+        elif engine in ("Yahoo", "Bing"):
             offset = (page * 10) - 9
             search_url = search_fmt_string.format(query, offset)
-        if engine=="Bing":
-            # structure pages in terms of 
-            first= (page * 10) - 9
-            search_url = search_fmt_string.format(query, first)
         html = BaseSearch.get_source(search_url)
         return BeautifulSoup(html, 'lxml')
 

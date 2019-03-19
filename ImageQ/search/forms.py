@@ -103,7 +103,9 @@ class SearchForm(forms.Form):
                         prediction_api=settings.PREDICTION_API,
                         image=prediction_model.image)
         # Store the decoded JSON Predictions
-        _predictions = json.loads(bytes.decode(urlpredictor.predict()))
+
+        json_bytes =  urlpredictor.predict()
+        _predictions = json.loads(bytes.decode(json_bytes))
         prediction_model.predictions = _predictions
         prediction_model.save()
         prediction = prediction_model

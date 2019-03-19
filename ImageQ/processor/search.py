@@ -42,7 +42,7 @@ class GoogleSearch(BaseSearch):
         results = soup.find_all('div', class_='g')
         if not results:
             raise ValueError(
-                "The result parsing was unsuccessful, flagged as unusual traffic")
+                "Google Systems have detected unusual traffic from the host, change search engines")
         search_results = self.parse_result(results)
         return search_results
 
